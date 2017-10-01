@@ -3,8 +3,13 @@ services:
      reverseproxy:
           image: reverseproxy
           ports:
-               - 7001:7001
+               - "7001:7001"
           restart: always
           volumes:
                - "/etc/pki/tls/certs/:/etc/ssl/certs/"
                - "/etc/pki/tls/private/:/etc/ssl/private"
+     nextwave:
+          image: nextwave
+          ports:
+               - "8080:7003"
+          restart: always
