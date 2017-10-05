@@ -3,7 +3,8 @@ services:
      reverseproxy:
           image: reverseproxy
           ports:
-               - "7001:7001"
+               - "80:80"
+               - "443:443"
           restart: always
           volumes:
                - "/etc/pki/tls/certs/:/etc/ssl/certs/"
@@ -13,9 +14,3 @@ services:
           ports:
                - "8080:7003"
           restart: always
-     nextcloud:
-          image: nextcloud:fpm
-          restart: always
-          volumes:
-               - "/var/lib/nextcloud/data:/var/www/html/config"
-               - "/etc/nextcloud/config.php:/var/www/html/config/config.php"
