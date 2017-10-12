@@ -1,0 +1,9 @@
+sudo docker run -d \
+    --hostname gitlab.nextwavesolutions.io \
+    --publish 1443:443 --publish 1080:80 --publish 1022:22 \
+    --name gitlab \
+    --restart always \
+    --volume /srv/gitlab/config:/etc/gitlab \
+    --volume /srv/gitlab/logs:/var/log/gitlab \
+    --volume /srv/gitlab/data:/var/opt/gitlab \
+    gitlab/gitlab-ce:latest
