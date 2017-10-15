@@ -5,12 +5,18 @@ services:
           ports:
                - "80:80"
                - "443:443"
+               - "1022:1022"
           restart: always
           volumes:
-               - "/etc/pki/tls/certs/:/etc/ssl/certs/"
-               - "/etc/pki/tls/private/:/etc/ssl/private"
+               - "/etc/letsencrypt/archive/www.nextwavesolutions.io:/etc/letsencrypt/archive/www.nextwavesolutions.io"
+          privileged: true
      nextwave:
           image: nextwave
-          ports:
-               - "8080:7003"
           restart: always
+     gitlab:
+          image: gitlab/gitlab-ce:latest
+          restart: always
+          volumes:
+               - "/srv/gitlab/config:/etc/gitlab"
+               - "/srv/gitlab/logs:/var/log/gitlab"
+               - "/srv/gitlab/data:/var/opt/gitlab"
