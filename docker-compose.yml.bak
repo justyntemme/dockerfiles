@@ -13,4 +13,17 @@ services:
      nextwave:
           image: nextwave
           restart: always
-
+     gitlab:
+          image: gitlab/gitlab-ce:latest
+          restart: always
+          volumes:
+               - "/srv/gitlab/config:/etc/gitlab"
+               - "/srv/gitlab/logs:/var/log/gitlab"
+               - "/srv/gitlab/data:/var/opt/gitlab"
+     znc:
+          image: "znc:latest"
+          restart: always
+          ports:
+               - "6697:6697"
+          volumes:
+               - "./znc/:/znc-data/"
