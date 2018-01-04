@@ -18,6 +18,10 @@ services:
      gitlab:
              image: gitlab/gitlab-ce:latest
              restart: always
+             hostname: 'gitlab.nextwavesolutions.io'
+             environment:
+                     GITLAB_OMNIBUS_CONFIG: |
+                             external_url 'http://gitlab.nextwavesolutions.io'
              volumes:
                  - "/srv/gitlab/config:/etc/gitlab"
                  - "/srv/gitlab/logs:/var/log/gitlab"
