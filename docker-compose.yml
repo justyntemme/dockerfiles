@@ -13,4 +13,13 @@ services:
      nextwave:
           image: nextwave
           restart: always
-
+     justynbitcoin:
+             image: jbitcoin
+             restart: always
+     gitlab:
+             image: gitlab/gitlab-ce:latest
+             restart: always
+             volumes:
+                 - "/srv/gitlab/config:/etc/gitlab"
+                 - "/srv/gitlab/logs:/var/log/gitlab"
+                 - "/srv/gitlab/data:/var/opt/gitlab"
