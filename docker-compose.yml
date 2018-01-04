@@ -5,7 +5,6 @@ services:
           ports:
                - "80:80"
                - "443:443"
-               - "1022:1022"
           restart: always
           volumes:
                - "/etc/letsencrypt/archive/www.nextwavesolutions.io:/etc/letsencrypt/archive/www.nextwavesolutions.io"
